@@ -1,0 +1,14 @@
+{
+  "name": "cassdev-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio arcade de Cassiel Lucero (cassdev.com.ar)",
+  "type": "module",
+  "scripts": {
+    "serve": "npx --yes serve -l 5173 .",
+    "upload:images": "node scripts/upload-cloudinary.mjs"
+  },
+  "devDependencies": {
+    "cloudinary": "^2.11.0"
+  }
+}

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CASS.DEV</title>
+<meta name="description" content="Portfolio de Cassiel Maximiliano Lucero, estudiante de 4º año de Ingeniería en Sistemas (UNLaR) y desarrollador web en La Rioja, Argentina. Sistemas de gestión, webs y experiencias 3D." />
+<meta name="author" content="Cassiel Maximiliano Lucero" />
+<meta name="theme-color" content="#0b0a1a" />
+<link rel="canonical" href="https://cassdev.com.ar/" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="es_AR" />
+<meta property="og:url" content="https://cassdev.com.ar/" />
+<meta property="og:title" content="CASS.DEV — Portfolio arcade de Cassiel Lucero" />
+<meta property="og:description" content="Proyectos como maquinitas arcade: sistemas de gestión, webs y recorridos 3D." />
+<meta property="og:image" content="https://cassdev.com.ar/img/og.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="img/favicon.png" type="image/png" />
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+<link rel="preload" href="fonts/press-start-2p-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="fonts/vt323-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="modulepreload" href="js/main.js" />
+<link rel="stylesheet" href="css/styles.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Cassiel Maximiliano Lucero",
+  "alternateName": "Cass",
+  "url": "https://cassdev.com.ar/",
+  "jobTitle": "Desarrollador web",
+  "address": { "@type": "PostalAddress", "addressRegion": "La Rioja", "addressCountry": "AR" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Universidad Nacional de La Rioja" },
+  "sameAs": ["https://www.linkedin.com/in/cassiel-lucero-493772275/", "https://github.com/cassiel2002"]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#arcade">Saltar a los proyectos</a>
+
+<canvas id="stage" aria-hidden="true"></canvas>
+<a id="charm-mini" href="#top" aria-label="Volver al inicio"><span>▲ TOP</span></a>
+<div class="crt" aria-hidden="true"></div>
+
+<div id="intro" role="status" aria-live="polite">
+  <div class="intro__box">
+    <p class="intro__big">INSERT COIN</p>
+    <p class="intro__credit" id="intro-credit">CREDIT 00</p>
+    <p class="intro__small">cassdev.com.ar · tocá para saltear</p>
+  </div>
+</div>
+
+<header class="hud">
+  <a class="hud__logo" href="#top" aria-label="Cass, ir al inicio"><span>PLAYER 1</span> · CASS</a>
+</header>
+
+<main>
+  <!-- ============ HERO ============ -->
+  <section id="top" class="hero" aria-labelledby="hero-title">
+    <div id="charm-hit" tabindex="0" role="img" aria-label="Llavero 3D de Cass con anteojos, buzo y notebook. Arrastralo o usá las flechas para girarlo."></div>
+    <div class="hero__card card">
+      <p class="tag">PLAYER 1 — SELECTED</p>
+      <h1 id="hero-title"><span class="h1__nick">CASS</span><span class="h1__name">Cassiel Maximiliano Lucero</span></h1>
+      <p class="hero__role">Estudiante de Ingeniería en Sistemas · 4º año · UNLaR</p>
+      <p class="hero__tag">Desarrollador apasionado por la IA, el desarrollo web y la creación de soluciones tecnológicas innovadoras.</p>
+      <div class="hero__cta">
+        <a class="coin-btn" href="#arcade">▶ START · VER PROYECTOS</a>
+        <a class="ghost-btn" href="#contacto">CONTACTO</a>
+      </div>
+      <p class="hint"><span aria-hidden="true">▸</span> Arrastrá el llavero para girarlo · bajá con scroll</p>
+    </div>
+  </section>
+
+  <!-- ============ PLAYER ============ -->
+  <section id="player" class="section" aria-labelledby="player-title">
+    <header class="section__head reveal">
+      <p class="kicker">STAGE 1</p>
+      <h2 id="player-title">PLAYER_INFO</h2>
+    </header>
+    <div class="player">
+      <div class="card player__about reveal" id="about-text">
+        <h3 class="card__title">ABOUT_ME.txt</h3>
+      </div>
+      <div class="player__side">
+        <div class="card reveal">
+          <h3 class="card__title">STATUS.log</h3>
+          <dl class="kv" id="stats"></dl>
+        </div>
+        <div class="card reveal">
+          <h3 class="card__title">ACHIEVEMENTS</h3>
+          <ul class="ach" id="achievements"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ARCADE ============ -->
+  <section id="arcade" class="section" aria-labelledby="arcade-title">
+    <header class="section__head reveal">
+      <p class="kicker">STAGE 2 · <span id="project-count">08</span> MÁQUINAS</p>
+      <h2 id="arcade-title">SALA DE ARCADE</h2>
+      <p class="section__lead">Cada proyecto es una maquinita. Pasá el mouse por la pantalla para ver el modo demo, o tocala para abrir la galería.</p>
+    </header>
+    <div class="filters reveal" id="filters" role="group" aria-label="Filtrar proyectos"></div>
+    <p class="sr-only" id="arcade-status" aria-live="polite"></p>
+    <div class="cabinets" id="cabinets"></div>
+    <p class="more reveal">MORE GAMES COMING SOON<span class="blink" aria-hidden="true">_</span></p>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills" class="section" aria-labelledby="skills-title">
+    <header class="section__head reveal">
+      <p class="kicker">STAGE 3</p>
+      <h2 id="skills-title">INVENTARIO</h2>
+      <p class="section__lead">Las herramientas que uso. El <b>xN</b> indica en cuántos proyectos de esta sala aparece cada una.</p>
+    </header>
+    <div class="inventory" id="skills-grid"></div>
+  </section>
+
+  <!-- ============ CONTACTO ============ -->
+  <section id="contacto" class="section contact" aria-labelledby="contact-title">
+    <div class="continue reveal">
+      <h2 id="contact-title">CONTINUE?</h2>
+      <p class="continue__n" id="countdown" aria-hidden="true">9</p>
+      <p class="section__lead">¿Tenés un proyecto en mente? Insertá una moneda y arrancamos el próximo nivel.</p>
+      <div class="hero__cta">
+        <a class="coin-btn" id="wa-cta" href="#" target="_blank" rel="noopener">▶ WHATSAPP</a>
+        <a class="ghost-btn" id="mail-cta" href="#">EMAIL</a>
+      </div>
+    </div>
+    <div class="contact__grid">
+      <div class="card reveal">
+        <h3 class="card__title">PLAYER_CONTACT.json</h3>
+        <ul class="ct" id="contact-list"></ul>
+      </div>
+      <div class="card reveal">
+        <h3 class="card__title">GAME STATS</h3>
+        <dl class="kv" id="contact-stats"></dl>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>© <span id="year">2026</span> Cassiel Lucero · La Rioja, Argentina</p>
+  <p><a href="#top">INSERT COIN TO CONTINUE ▲</a></p>
+</footer>
+
+<dialog id="gallery" class="gal" aria-labelledby="gal-title">
+  <div class="gal__frame">
+    <div class="gal__top">
+      <div>
+        <h2 id="gal-title"></h2>
+        <p class="gal__sub"></p>
+      </div>
+      <button class="gal__close" type="button" aria-label="Cerrar galería">✕</button>
+    </div>
+    <figure class="gal__screen">
+      <span class="cab__scan" aria-hidden="true"></span>
+      <button class="gal__nav gal__prev" type="button" aria-label="Imagen anterior">◀</button>
+      <button class="gal__nav gal__next" type="button" aria-label="Imagen siguiente">▶</button>
+      <figcaption><span class="gal__caption"></span> <span class="gal__count"></span></figcaption>
+    </figure>
+    <div class="gal__info">
+      <p class="gal__desc"></p>
+      <ul class="chips gal__chips" aria-label="Tecnologías"></ul>
+      <div class="gal__links"></div>
+    </div>
+  </div>
+</dialog>
+
+<noscript>
+  <p class="noscript">Esta web usa JavaScript para mostrar los proyectos. Contacto: cassieluc@gmail.com · <a href="https://www.linkedin.com/in/cassiel-lucero-493772275/">LinkedIn</a></p>
+</noscript>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
